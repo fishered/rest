@@ -1,0 +1,41 @@
+server:
+  port: 9999
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://10.35.30.105:5433/asset218
+    type: com.zaxxer.hikari.HikariDataSource
+    password: idss@1234
+    username: postgres
+  redis:
+    host: 10.66.11.57
+    port: 6379
+    password: dat@ori123
+    database: 0
+  data:
+    elasticsearch:
+      cluster-hosts: 10.66.11.57:9200
+      userName: elastic
+      password: X1@dataori
+
+mybatis-plus:
+  mapperPackage: com.asset.rest.service.**.mapper
+  mapper-locations: classpath*:/mapper/**/*.xml
+  typeAliasesPackage: com.asset.rest.domain
+  checkConfigLocation: false
+  configuration:
+    mapUnderscoreToCamelCase: true
+    autoMappingBehavior: PARTIAL
+    autoMappingUnknownColumnBehavior: WARNING
+    logImpl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+logging:
+  file:
+    #path: logs
+    name: logs/rest.log
+  level:
+    com.asset.rest: debug
+  logback:
+    rollingpolicy:
+      max-history: 180
+
